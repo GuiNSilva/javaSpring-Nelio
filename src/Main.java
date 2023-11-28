@@ -22,8 +22,12 @@ public class Main {
         //objeto employee recebendo dados do scanner
         Employee employee = new Employee( name, grossSalary);
 
-        //instanciando o salaryService(serviço de calculo de impostos)
-        SalaryService salaryService = new SalaryService();
+
+        TaxService taxService = new TaxService();
+        PensionService pensionService = new PensionService();
+
+        //instanciando o salaryService(serviço de calculo de impostos) com as suas dependencias.
+        SalaryService salaryService = new SalaryService(taxService,pensionService);
 
         //variavel que recebe o calculo do salaryService
         double netSalary = salaryService.netSalary(employee);

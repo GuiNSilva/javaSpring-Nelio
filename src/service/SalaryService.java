@@ -4,13 +4,15 @@ import entities.Employee;
 
 public class SalaryService {
 
+    //dependencias do SalaryService
+    private TaxService taxService ;
+    private PensionService pensionService ;
 
-
-    // forma errada
-    //criando componente
-
-    TaxService taxService = new TaxService();
-    PensionService pensionService = new PensionService();
+    //injetando as dependencias atraves do construtor
+    public SalaryService(TaxService taxService, PensionService pensionService) {
+        this.taxService = taxService;
+        this.pensionService = pensionService;
+    }
 
     //função que calcula os descontos no salario
     public double netSalary(Employee employee){

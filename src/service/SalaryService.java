@@ -16,7 +16,7 @@ public class SalaryService {
 
     //função que calcula os descontos no salario
     public double netSalary(Employee employee){
-        return employee.getGrossSalary() - taxService.tax20(employee.getGrossSalary())
+        return employee.getGrossSalary() - taxService.tax(employee.getGrossSalary())
         - pensionService.discount(employee.getGrossSalary());
     }
 }

@@ -1,4 +1,5 @@
 import entities.Employee;
+import service.BrasilTaxService;
 import service.PensionService;
 import service.SalaryService;
 import service.TaxService;
@@ -22,8 +23,9 @@ public class Main {
         //objeto employee recebendo dados do scanner
         Employee employee = new Employee( name, grossSalary);
 
-
-        TaxService taxService = new TaxService();
+        //exemplo de troca da dependencia sem precisar mexer no serviço de calculos
+        TaxService taxService = new BrasilTaxService();
+        
         PensionService pensionService = new PensionService();
 
         //instanciando o salaryService(serviço de calculo de impostos) com as suas dependencias.
